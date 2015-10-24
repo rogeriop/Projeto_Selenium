@@ -56,7 +56,7 @@ public class NovoPedidoTest {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li[data-value='Camisa Regata']")));
 		driver.findElement(By.cssSelector("li[data-value='Camisa Regata']")).click();
 		
-		// Preenche a quantidade
+		// Preenche a quantidade Camisa Regata
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("produtoquantidade")));
 		driver.findElement(By.id("produtoquantidade")).sendKeys("1");
 		driver.findElement(By.id("adicionar")).click();
@@ -66,7 +66,7 @@ public class NovoPedidoTest {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("li[data-value='Camisa Social']")));
 		driver.findElement(By.cssSelector("li[data-value='Camisa Social']")).click();
 		
-		// Preenche a quantidade
+		// Preenche a quantidade Camisa Social
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("produtoquantidade")));
 		driver.findElement(By.id("produtoquantidade")).sendKeys("1");
 		driver.findElement(By.id("adicionar")).click();
