@@ -1,20 +1,25 @@
 package manipulacao;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.thoughtworks.selenium.Wait;
 
 public class NovoPedidoTest {
 
 	@Test
 	public void test() {
-		WebDriver driver = new FirefoxDriver();
+		// WebDriver driver = new FirefoxDriver();
+		
+		System.setProperty("webdriver.chrome.driver",
+				"C:/selenium/drivers/chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
@@ -70,6 +75,23 @@ public class NovoPedidoTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("produtoquantidade")));
 		driver.findElement(By.id("produtoquantidade")).sendKeys("1");
 		driver.findElement(By.id("adicionar")).click();
+		
+		// Validação da Camisa Regata
+		assertEquals("Camisa Regata", driver.findElement(By.xpath("//tr[1]/td[2]")).getText());
+		assertEquals("Pretp / P / Tecido / Esportivo", driver.findElement(By.xpath("//tr[1]/td[3]")).getText());
+		assertEquals("R$ 50,00", driver.findElement(By.xpath("//tr[1]/td[4]")).getText());
+		assertEquals("1", driver.findElement(By.xpath("//tr[1]/td[5]")).getText());
+		assertEquals("R$ 50", driver.findElement(By.xpath("//tr[1]/td[6]")).getText());
+
+		// Validação da Camisa Social
+		assertEquals("Camisa Social", driver.findElement(By.xpath("//tr[2]/td[2]")).getText());
+		assertEquals("R$ 200,00", driver.findElement(By.xpath("//tr[2]/td[4]")).getText());
+		assertEquals("1", driver.findElement(By.xpath("//tr[2]/td[5]")).getText());
+		assertEquals("R$ 200", driver.findElement(By.xpath("//tr[2]/td[6]")).getText());
+		
+		
+		
+		
 		
 		
 	}
